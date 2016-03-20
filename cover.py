@@ -18,8 +18,6 @@ cutter = 'laser'
 tab_length = 5
 
 
-
-
 module = camcam.add_plane(Plane('plane', cutter=cutter))
 
 module.add_layer(
