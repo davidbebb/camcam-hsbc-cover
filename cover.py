@@ -18,35 +18,29 @@ cutter = 'laser'
 tab_length = 5
 material = 'perspex'
 
-# centre = V(box_width / 2, box_height / 2)
-# cutterrad = milling.tools[cutter]['diameter'] / 2
 centre = V(0,0)
 module = camcam.add_plane(Plane('plane', cutter=cutter))
 
-Lback = module.add_layer(
+module.add_layer(
     'back',
      material=material,
      thickness=thickness,
      z0=0,
-     zoffset=-
-    thickness -
-    box_depth)
-Lback = module.add_layer(
+     zoffset=-thickness-box_depth)
+
+module.add_layer(
     'bottom',
      material=material,
      thickness=thickness,
      z0=0,
-     zoffset=-
-    thickness -
-    box_depth)
-Lback = module.add_layer(
+     zoffset=-thickness-box_depth)
+
+module.add_layer(
     'side',
      material=material,
      thickness=thickness,
      z0=0,
-     zoffset=-
-    thickness -
-    box_depth)
+     zoffset=-thickness-box_depth)
 
 bottom_border = FingerJointBoxSide(
     centre,
@@ -72,7 +66,8 @@ bottom.number = 1
 
 back_border = FingerJointBoxSide(
     centre,
-    box_width, box_depth,
+    box_width,
+    box_depth,
     'in',
     corners={'left': 'off', 'top': 'on', 'right': 'off', 'bottom': 'on'}, sidemodes={'top': 'straight'},
     tab_length=tab_length,
