@@ -8,9 +8,9 @@ fudge = 0.1
 thickness = 3
 
 # Internal dimensions of box
-box_width = 35
-box_height = 5
-box_depth = 50
+box_width = 45.5
+box_height = 4
+box_depth = 70.5
 
 
 cutter = 'laser'
